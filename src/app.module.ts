@@ -10,20 +10,20 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    UsersModule, 
-    AuthModule, 
-    ReservationModule, 
+    UsersModule,
+    AuthModule,
+    ReservationModule,
     ServicesModule,
-    ConfigModule.forRoot({ envFilePath: '.env'}),
+    ConfigModule.forRoot({ envFilePath: '.env' }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       port: +process.env.DB_PORT,
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
     })
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [ AppController ],
+  providers: [ AppService ],
 })
-export class AppModule {}
+export class AppModule { }
