@@ -9,3 +9,5 @@ export class CreateUserDto {
     readonly zipCode: string
     readonly city: string
 }
+
+export default CreateUserDto
