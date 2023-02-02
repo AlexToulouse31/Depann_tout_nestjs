@@ -8,7 +8,7 @@ import { Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 export class reservation {
     @PrimaryGeneratedColumn()
     id: number
-²
+
     @ManyToOne(() => User, (user) => user.reservation)
     user: User
 }
