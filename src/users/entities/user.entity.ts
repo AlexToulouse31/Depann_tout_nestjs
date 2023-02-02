@@ -39,4 +39,5 @@ export class User extends BaseEntity {
     reservations: Reservation[]
     reservation: any;
     service: any;
+  affected: any;
 }
