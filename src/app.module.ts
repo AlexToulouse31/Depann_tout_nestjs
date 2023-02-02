@@ -23,7 +23,7 @@ import { ConfigModule } from '@nestjs/config';
       database: process.env.DB_NAME,
     })
   ],
-  controllers: [ AppController ],
-  providers: [ AppService ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule { }

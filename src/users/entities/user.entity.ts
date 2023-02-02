@@ -8,13 +8,13 @@ export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column({nullable: false, unique: true})
+    @Column({ nullable: false, unique: true })
     username: string
 
     @Column({})
     mail: string
 
-    @Column({nullable: false, select: false})
+    @Column({ nullable: false, select: false })
     password: string
 
     @Column()
@@ -37,4 +37,6 @@ export class User extends BaseEntity {
 
     @OneToMany(() => Reservation, (reservation) => reservation.user)
     reservations: Reservation[]
+    reservation: any;
+    service: any;
 }
