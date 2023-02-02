@@ -1,1 +1,3 @@
-export class Reservation {}
+export class Reservation {
+    user: any;
+}
