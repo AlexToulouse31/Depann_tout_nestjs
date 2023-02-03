@@ -1,1 +1,7 @@
-export class CreateReservationDto {}
+export class CreateReservationDto {
+
+    numero: number;
+
+}
+
+export default CreateReservationDto;
