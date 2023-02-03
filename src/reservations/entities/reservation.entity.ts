@@ -1,8 +1,9 @@
+
 import { User } from 'src/users/entities/user.entity';
-import { Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class reservation {
+export class Reservation extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number
 
