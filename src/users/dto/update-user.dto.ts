@@ -1,16 +1,30 @@
 import { PartialType } from '@nestjs/mapped-types';
+import { IsOptional } from 'class-validator';
 import { CreateUserDto } from './create-user.dto';
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {
-    readonly id: number
-    readonly username:string
-    readonly mail :string
-    readonly password: string
-    readonly adress_line1: string
-    readonly adress_line2: string
-    readonly adress_line3: string
-    readonly zipCode: string
-    readonly city: string
-}
+    
+    @IsOptional()
+    username: string
 
-export default UpdateUserDto
+    @IsOptional()
+    mail: string
+
+    @IsOptional()
+    password: string
+
+    @IsOptional()
+    adress_line1: string
+
+    @IsOptional()
+    adress_line2: string
+
+    @IsOptional()
+    adress_line3: string
+
+    @IsOptional()
+    zipCode: string
+
+    @IsOptional()
+    city: string
+}

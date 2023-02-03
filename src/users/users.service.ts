@@ -23,13 +23,25 @@ export class UsersService {
 
   async findUserByUsername(username:string) {
     const user = await this.usersRepository.findOneBy({username})
-    return ;
+    return user ;
   }
 
   async updateUser(username: string, user: UpdateUserDto) {
-    await this.usersRepository.update(username, user)
+
     const updatedUser = await this.usersRepository.findOneBy({username})
 
+    updatedUser.username = user.username
+    updatedUser.mail = user.mail
+    updatedUser.password = user.password
+    updatedUser.adress_line1 = user.adress_line1
+    updatedUser.adress_line2 = user.adress_line2
+    updatedUser.adress_line3 = user.adress_line3
+    updatedUser.zipCode = user.zipCode
+    updatedUser.city = user.city
+    
+    await this.usersRepository.save(updatedUser)
+    console.log('service ',updatedUser);
+    
     if (updatedUser){
       return updatedUser
     }
@@ -38,7 +50,7 @@ export class UsersService {
 
   async removeUser(username: string) {
     const deletedUser = await this.usersRepository.findOneBy({username})
-    await this.usersRepository.remove([])
+    await this.usersRepository.delete(deletedUser.id)
 
     if (!deletedUser){
       throw new HttpException ('Username not found', HttpStatus.NOT_FOUND)}

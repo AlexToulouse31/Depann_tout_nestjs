@@ -23,7 +23,9 @@ export class UsersController {
   }
 
   @Patch(':username')
-  update(@Param('iusername') username: string, @Body() updateUserDto: UpdateUserDto) {
+  update(@Param('username') username: string, @Body() updateUserDto: UpdateUserDto) {
+    console.log("ctrl ",username, updateUserDto);
+    
     return this.usersService.updateUser(username, updateUserDto);
   }
 
