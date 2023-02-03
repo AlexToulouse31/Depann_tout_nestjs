@@ -27,6 +27,6 @@ export class service {
     @Column()
     reserved: boolean;
 
-    @ManyToOne(() => User, (user) => user.service)
+    @ManyToOne(() => User, (user) => user.services)
     user: User
 }
