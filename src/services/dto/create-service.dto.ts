@@ -1,12 +1,24 @@
+import { IsBooleanString, IsDateString, IsNotEmpty } from "class-validator";
+
 export class CreateServiceDto {
 
+    @IsNotEmpty()
     name: string;
-    price: string;
-    city: string;
-    //start_time: date;
-    //end_time: date;
-    reservation: boolean;
 
+    @IsNotEmpty()
+    price: string;
+
+    @IsNotEmpty()
+    city: string;
+
+    @IsDateString()
+    start_time: Date;
+
+    @IsDateString()
+    end_time: Date;
+
+    @IsBooleanString()
+    reservation: boolean;
 }
 
 export default CreateServiceDto;

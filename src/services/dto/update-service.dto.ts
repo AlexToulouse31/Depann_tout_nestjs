@@ -1,16 +1,26 @@
 import { PartialType } from '@nestjs/mapped-types';
+import { IsOptional } from 'class-validator';
 import { CreateServiceDto } from './create-service.dto';
 
 export class UpdateServiceDto extends PartialType(CreateServiceDto) {
 
-    id: number;
+    @IsOptional()
     name: string;
-    price: string;
-    city: string;
-    //start_time: date;
-    //end_time: date;
-    reservation: boolean;
 
+    @IsOptional()
+    price: string;
+
+    @IsOptional()
+    city: string;
+
+    @IsOptional()
+    start_time: Date;
+
+    @IsOptional()
+    end_time: Date;
+
+    @IsOptional()
+    reservation: boolean;
 }
 
 export default UpdateServiceDto;
