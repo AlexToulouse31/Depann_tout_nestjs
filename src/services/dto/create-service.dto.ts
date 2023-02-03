@@ -1,10 +1,22 @@
-export class CreateServiceDto {
+import { IsAlpha, IsBooleanString, IsDateString, IsPositive } from "class-validator";
 
+export class CreateServiceDto {
+    @IsAlpha()
     name: string;
+
+    @IsPositive()
     price: string;
+
+    @IsAlpha()
     city: string;
-    //start_time: date;
-    //end_time: date;
+
+    @IsDateString()
+    start_time: Date;
+
+    @IsDateString()
+    end_time: Date;
+
+    @IsBooleanString()
     reservation: boolean;
 
 }
