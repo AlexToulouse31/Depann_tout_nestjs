@@ -1,6 +1,3 @@
-export class Service {
-    user: any;
-}
 import { User } from 'src/users/entities/user.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
