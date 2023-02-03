@@ -1,13 +1,14 @@
-import { IsAlpha, IsBooleanString, IsDateString, IsPositive } from "class-validator";
+import { IsBooleanString, IsDateString, IsNotEmpty } from "class-validator";
 
 export class CreateServiceDto {
-    @IsAlpha()
+
+    @IsNotEmpty()
     name: string;
 
-    @IsPositive()
+    @IsNotEmpty()
     price: string;
 
-    @IsAlpha()
+    @IsNotEmpty()
     city: string;
 
     @IsDateString()
@@ -18,7 +19,6 @@ export class CreateServiceDto {
 
     @IsBooleanString()
     reservation: boolean;
-
 }
 
 export default CreateServiceDto;

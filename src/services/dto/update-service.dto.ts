@@ -1,25 +1,25 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { IsAlpha, IsBooleanString, IsDateString, IsPositive } from 'class-validator';
+import { IsOptional } from 'class-validator';
 import { CreateServiceDto } from './create-service.dto';
 
 export class UpdateServiceDto extends PartialType(CreateServiceDto) {
 
-    @IsAlpha()
+    @IsOptional()
     name: string;
 
-    @IsPositive()
+    @IsOptional()
     price: string;
 
-    @IsAlpha()
+    @IsOptional()
     city: string;
 
-    @IsDateString()
+    @IsOptional()
     start_time: Date;
 
-    @IsDateString()
+    @IsOptional()
     end_time: Date;
 
-    @IsBooleanString()
+    @IsOptional()
     reservation: boolean;
 }
 
