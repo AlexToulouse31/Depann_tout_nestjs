@@ -6,6 +6,6 @@ export class reservation {
     @PrimaryGeneratedColumn()
     id: number
 
-    @ManyToOne(() => User, (user) => user.reservation)
+    @ManyToOne(() => User, (user) => user.reservations)
     user: User
 }
