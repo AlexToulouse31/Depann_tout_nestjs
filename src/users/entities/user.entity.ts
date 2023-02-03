@@ -1,4 +1,4 @@
-import { Reservation } from "src/reservations/entities/reservation.entity";
+import { Reservation } from "src/reservations/entities/Reservation";
 import { Service } from "src/services/entities/service.entity";
 import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -37,4 +37,6 @@ export class User extends BaseEntity {
 
     @OneToMany(() => Reservation, (reservation) => reservation.user)
     reservations: Reservation[]
+    service: any;
+    reservation: any;
 }
