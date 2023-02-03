@@ -7,6 +7,9 @@ import { ReservationModule } from './reservations/reservation.module';
 import { ServicesModule } from './services/services.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { User } from './users/entities/user.entity';
+import { Reservation } from './reservations/entities/reservation.entity';
+import { Service } from './services/entities/service.entity';
 
 @Module({
   imports: [
@@ -23,7 +26,8 @@ import { ConfigModule } from '@nestjs/config';
       database: process.env.DB_NAME,
       synchronize: true,
       logging: false,
-      entities: [__dirname + '**/*.entity.{js,ts}']
+      entities: [User, Reservation, Service]
+      //entities: [__dirname + '**/*.entity.{js,ts}']
     })
   ],
   controllers: [AppController],
