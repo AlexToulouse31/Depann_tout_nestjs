@@ -40,7 +40,7 @@ export class UsersService {
     const deletedUser = await this.usersRepository.findOneBy({username})
     await this.usersRepository.remove([])
 
-    if (!deletedUser.affected){
+    if (!deletedUser){
       throw new HttpException ('Username not found', HttpStatus.NOT_FOUND)}
   }
 }

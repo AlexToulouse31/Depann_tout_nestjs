@@ -37,7 +37,4 @@ export class User extends BaseEntity {
 
     @OneToMany(() => Reservation, (reservation) => reservation.user)
     reservations: Reservation[]
-    reservation: any;
-    service: any;
-  affected: any;
 }
