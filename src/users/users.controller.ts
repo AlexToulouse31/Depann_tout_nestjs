@@ -12,6 +12,13 @@ export class UsersController {
     return this.usersService.createOneUser(createUserDto);
   }
 
+
+  @Post('/login')
+  getMessage(@Body() username: string, password: string) {
+    return this.usersService.loginUser (username, password)
+  }
+
+
   @Get()
   findAll() {
     return this.usersService.findAllUsers();
@@ -22,10 +29,6 @@ export class UsersController {
     return this.usersService.findUserByUsername (username);
   } */
 
-  @Get('login')
-  loginUser(@Param('username') username: string, password: string) {
-    return this.usersService.loginOneUser (username, password)
-  }
 
   @Patch(':username')
   update(@Param('username') username: string, @Body() updateUserDto: UpdateUserDto) {

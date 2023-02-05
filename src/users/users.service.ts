@@ -6,6 +6,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import * as bcrypt from 'bcrypt'
 import { match } from 'assert';
+import { encryptData, decryptData } from 'src/utils/encrypt'
 
 @Injectable()
 export class UsersService {
@@ -23,16 +24,9 @@ export class UsersService {
     return newUser;
   }
 
-  findAllUsers() {
-    return this.usersRepository.find();
-  }
 
-  /* async findUserByUsername(username:string) {
-    const user = await this.usersRepository.findOneBy({username})
-    return user ;
-  } */
 
-  async loginOneUser(username: string, password: string){
+  async loginUser(username: string, password: string){
     const user = await this.usersRepository.findOneBy({username})
     if (user){
       const matsh = await bcrypt.compare(password, user.password);
@@ -41,6 +35,18 @@ export class UsersService {
     }
   }
 
+
+  
+  findAllUsers() {
+    return this.usersRepository.find();
+  }
+
+
+
+  /* async findUserByUsername(username:string) {
+    const user = await this.usersRepository.findOneBy({username})
+    return user ;
+  } */
 
 
 
@@ -65,6 +71,8 @@ export class UsersService {
     }
     throw new HttpException ('Username not found', HttpStatus.NOT_FOUND)
   }
+
+
 
   async removeUser(username: string) {
     const deletedUser = await this.usersRepository.findOneBy({username})
