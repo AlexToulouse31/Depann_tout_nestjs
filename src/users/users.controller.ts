@@ -17,9 +17,14 @@ export class UsersController {
     return this.usersService.findAllUsers();
   }
 
-  @Get(':username')
+  /* @Get(':username')
   findOne(@Param('username') username: string) {
     return this.usersService.findUserByUsername (username);
+  } */
+
+  @Get('login')
+  loginUser(@Param('username') username: string, password: string) {
+    return this.usersService.loginOneUser (username, password)
   }
 
   @Patch(':username')

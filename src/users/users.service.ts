@@ -27,12 +27,12 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
-  async findUserByUsername(username:string) {
+  /* async findUserByUsername(username:string) {
     const user = await this.usersRepository.findOneBy({username})
     return user ;
-  }
+  } */
 
-  async loginUser(username: string, password: string){
+  async loginOneUser(username: string, password: string){
     const user = await this.usersRepository.findOneBy({username})
     if (user){
       const matsh = await bcrypt.compare(password, user.password);
