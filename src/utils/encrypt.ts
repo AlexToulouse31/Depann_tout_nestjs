@@ -8,7 +8,7 @@ import
 
 const alg = 'aes-256-ctr';
 let key = 'The Encryption Key';
-key = createHash('sha256').update(String(key)).digest('base64').substr(0, 32);
+key = createHash('sha256').update(String(key)).digest('base64').substring(0, 32);
 
 export const encryptData = (data) =>
 {

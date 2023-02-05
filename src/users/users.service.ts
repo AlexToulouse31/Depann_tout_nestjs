@@ -31,8 +31,8 @@ export class UsersService {
     if (user){
       const matsh = await bcrypt.compare(password, user.password);
       if(match) return 'Credentials are correct !';
-      return 'Invalide !'
     }
+    return 'Invalide !'
   }
 
 
